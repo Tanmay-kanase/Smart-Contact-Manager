@@ -7,15 +7,16 @@
     <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
   </head>
   <body>
-    <h1 class="text-green-800">Welcome to home page</h1>
+    <h1 class="text-green-800">Welcome to service page</h1>
     <p class="text-red-900">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias eveniet
       aliquid ex labore sequi a natus dignissimos in numquam, animi molestiae
       voluptatibus veritatis iusto magnam minus quam tenetur doloremque
       voluptates.
     </p>
-    <p class="text-black text-2xl"><span data-th-text="${name}"></span></p>
-    <p class="text-black text-2xl"><span data-th-text="${Profesion}"></span></p>
-
+    <div th:insert="~{base :: parent(~{::section})}"></div>
+    <section>
+      <h3 class="text-yellow-500">This is dynamic content services</h3>
+    </section>
   </body>
 </html>
