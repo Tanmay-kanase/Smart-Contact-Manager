@@ -1,10 +1,7 @@
 package com.SCM.SCM.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
@@ -12,10 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class PageController {
         
     @RequestMapping("/home")
-    public String home(Model model){
+    public String home(){
         System.out.println("Home page handler");
-        model.addAttribute("name","Tanmay Kanase");
-        model.addAttribute("Profesion", "Software Engineer");
      return "home";
     }
 
@@ -32,4 +27,24 @@ public class PageController {
         System.out.println("Service page");
         return "services";
     }
+
+    @RequestMapping("/contact")
+    public String contactPage() {
+        System.out.println("Service page");
+        return "contact";
+    }
+
+    @RequestMapping("/register")
+    public String registerPage() {
+        System.out.println("Service page");
+        return "register";
+    }
+
+    @RequestMapping("/login")
+    public String loginPage() {
+        System.out.println("Service page");
+        return "login";
+    }
+
+
 }

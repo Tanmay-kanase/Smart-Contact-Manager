@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>About</title>
   </head>
   <body>
-    <h1>This is about page</h1>
-    <div class="host-tag" th:insert="~{base :: parent(~{::section})}">
-      <section><h2>Dynamic content</h2><button>Click n dynamic content</button></section>
-    </div>
+    <div id="content"><h1>Welocme to spring boot</h1></div>
+    <script> console.log("about page")</script>
   </body>
 </html>
