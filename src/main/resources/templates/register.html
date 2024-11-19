@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html
   lang="en"
-  data-th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
 >
   <head>
     <title>Sign up</title>
   </head>
   <body>
     <div id="content">
-      <h1 class="text-green-800">Welcome to signup page</h1>
-      <p class="text-red-900">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias eveniet
-        aliquid ex labore sequi a natus dignissimos in numquam, animi molestiae
-        voluptatibus veritatis iusto magnam minus quam tenetur doloremque
-        voluptates.
-      </p>
+      <div class="grid grid-cols-12">
+        <div class="col-span-4 md:col-span-2 xl:col-span-4"></div>
+        <div class="col-span-12 md:col-span-8 lg:col-span-4 xl:col-span-4">
+          <a
+            href="#"
+            class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+          >
+            <h5
+              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              Signup Here
+            </h5>
+            <p class="font-normal text-gray-700 dark:text-gray-400">
+              Start managing contacts here... 
+            </p>
+          </a>
+        </div>
+      </div>
     </div>
     <script>
       console.log("Hello");
