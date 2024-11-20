@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.SCM.SCM.entities.User;
 import com.SCM.SCM.forms.userForm;
+import com.SCM.SCM.helpers.Message;
+import com.SCM.SCM.helpers.MessageType;
 import com.SCM.SCM.services.UserService;
+
+import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -65,19 +69,24 @@ public class PageController {
     // Processng Register
     
     @RequestMapping(value = "/do-register" , method = RequestMethod.POST)
-    public String processRegister(@ModelAttribute userForm userForm){
+    public String processRegister(@ModelAttribute userForm userForm , HttpSession session){
         System.out.println("Processing register");
         System.out.println(userForm);
-        User user = User.builder()
-        .name(userForm.getName())
-        .email(userForm.getEmail())
-        .password(userForm.getPassword())
-        .about(userForm.getAbout())
-        .phoneNumber(userForm.getPhoneNumber())
-        .build();
+        User user = new User();
+        user.setName(userForm.getName());
+        user.setAbout(userForm.getAbout());
+        user.setPassword(userForm.getPassword());
+        user.setEmail(userForm.getEmail());
+        user.setPhoneNumber(userForm.getPhoneNumber());
+        user.setProfilePic("https://cdn-icons-png.flaticon.com/512/3135/3135715.png");
         User savedUser = userService.saveUser(user);
         System.out.println("UserSaved :"+savedUser);
-        return "redirect:/home";
+
+        Message message =Message.builder().content("Registration successfull").type(MessageType.green).build();
+
+        session.setAttribute("message" , message);
+         
+        return "redirect:/register";
     }
 
 
