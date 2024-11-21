@@ -3,6 +3,7 @@ package com.SCM.SCM.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import com.SCM.SCM.helpers.MessageType;
 import com.SCM.SCM.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 
 @Controller
@@ -52,8 +54,7 @@ public class PageController {
     public String register(Model model) {
         System.out.println("Service page");
         userForm userForm = new userForm();
-        userForm.setName("Tanmay");
-        userForm.setAbout("This is about section");
+
         model.addAttribute("userForm" , userForm);
         
 
@@ -69,9 +70,13 @@ public class PageController {
     // Processng Register
     
     @RequestMapping(value = "/do-register" , method = RequestMethod.POST)
-    public String processRegister(@ModelAttribute userForm userForm , HttpSession session){
+    public String processRegister(@Valid @ModelAttribute userForm userForm , BindingResult rBindingResult , HttpSession session){
         System.out.println("Processing register");
         System.out.println(userForm);
+        // Validation form
+        if(rBindingResult.hasErrors()){
+            return "register";
+        }
         User user = new User();
         user.setName(userForm.getName());
         user.setAbout(userForm.getAbout());
