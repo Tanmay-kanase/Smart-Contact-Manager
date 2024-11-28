@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html class="light" lang="en" th:fragment="parent(content,title,script)" xmlns:th="http://www.thymeleaf.org">
+<html
+  class="light"
+  lang="en"
+  th:fragment="parent(content,title,script)"
+  xmlns:th="http://www.thymeleaf.org"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title th:replace="${title}">SCM</title>
-    
-    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
-      rel="stylesheet"
-    />
     <!-- font awesome -->
     <link
       rel="stylesheet"
@@ -18,13 +17,17 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
   </head>
   <body class="dark:bg-gray-900 dark:text-white">
-    
     <!-- main content -->
-     
-     <section th:replace="~{navbar :: navbar}"></section>
-     <section th:replace="${content}"></section>
+
+    <section th:replace="~{navbar :: navbar}"></section>
+    <section th:replace="${content}"></section>
     <!-- flow bite content -->
     <script src="https://cdnjs.cloudfare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script data-th-src="@{'/js/script.js'}"></script>

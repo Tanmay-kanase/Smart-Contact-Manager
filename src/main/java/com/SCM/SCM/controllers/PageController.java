@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -18,6 +19,7 @@ import com.SCM.SCM.services.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 
 
@@ -68,11 +70,11 @@ public class PageController {
 
         return "register";
     }
-
-    @RequestMapping("/login")
-    public String loginPage() {
-        System.out.println("Service page");
-        return "login";
+    
+    
+    @GetMapping("/login")
+    public String login() {
+        return new String("login");
     }
 
     // Processng Register
